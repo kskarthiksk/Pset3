@@ -11,7 +11,7 @@
 /**
  * Returns true if value is in array of n values, else false.
  */
-bool search(int value, int values[], int n)
+bool search(int value, int values[], int n)   //Binary search
 {
     int L=0,U=n,mid;
     if(n<=0)
@@ -32,24 +32,19 @@ bool search(int value, int values[], int n)
 /**
  * Sorts array of n values.
  */
-void sort(int values[], int n)
+void sort(int values[], int n)   //Bubble sort
 {
-    // TODO: implement an O(n^2) sorting algorithm
-    int ar[65536],i,j=0;
-    for(i=0;i<MAX;i++)
-        ar[i]=0;
-    for(i=0;i<n;i++)
-        ar[values[i]]++;
-    for(i=0;i<n&&j<MAX;)
+    int i,j,temp;
+    for(i=0;i<n-1;i++)
     {
-        if(ar[j]>0)
+        for(j=0;j<n-i-1;j++)
         {
-            values[i]=ar[j];
-            i++;
-            j--;
+            if(values[j]>values[j+1])
+            {
+                temp=values[j];
+                values[j]=values[j+1];
+                values[j+1]=temp;
+            }
         }
-        else
-            j++;
     }
-    return;
 }
